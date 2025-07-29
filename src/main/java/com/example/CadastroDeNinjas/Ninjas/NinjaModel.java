@@ -21,8 +21,12 @@ public class NinjaModel {
 
     private long id;
     private String name;
-    private String email;
     private int idade;
+
+    @Column(unique = true)
+    private String email;
+
+
 
     //@ManTOne - um ninja tem uma unica missao
     @ManyToOne
