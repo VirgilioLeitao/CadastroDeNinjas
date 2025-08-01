@@ -1,29 +1,26 @@
-package com.example.CadastroDeNinjas.Ninjas;
-
-import com.example.CadastroDeNinjas.Missoes.MissaoModel;
+package dev.java10x.CadastroDeNinjas.Ninjas;
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-//Entity transforma uma classe comum em uma entidade de BD
-//JPA = Java Persistence API
 @Entity
 @Table(name = "tb_cadastro")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@ToString(exclude = "missoes")
 public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column (name = "id")
-    private Long id;
+    private long id;
 
-    @Column (name = "name")
-    private String name;
+    @Column (name = "nome")
+    private String nome;
 
     @Column(unique = true)
     private String email;
@@ -31,16 +28,14 @@ public class NinjaModel {
     @Column (name = "img_url")
     private String imgUrl;
 
+    @Column (name = "rank")
+    private String rank;
+
     @Column (name = "idade")
     private int idade;
 
-
-
-
-
-    //@ManTOne - um ninja tem uma unica missao
     @ManyToOne
-    @JoinColumn(name = "missao_id") //Foreing Key ou chave estrangeira
-    private MissaoModel missoes;
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
 }
