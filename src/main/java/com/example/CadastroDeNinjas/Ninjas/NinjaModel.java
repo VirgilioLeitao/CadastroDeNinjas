@@ -41,6 +41,6 @@ public class NinjaModel {
     //@ManTOne - um ninja tem uma unica missao
     @ManyToOne
     @JoinColumn(name = "missao_id") //Foreing Key ou chave estrangeira
-    private MissaoModel missoes;
+    private MissaoModel missao;
 
 }
