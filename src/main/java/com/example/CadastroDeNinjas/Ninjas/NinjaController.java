@@ -4,7 +4,7 @@ package com.example.CadastroDeNinjas.Ninjas;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
 
     @GetMapping("/boasvindas")
@@ -18,7 +18,7 @@ public class NinjaController {
         return "Ninja criado";
     }
     // Mostrar todos os ninjas (READ)
-    @GetMapping ("/todos")
+    @GetMapping ("/listar")
     public String mostrarTodosOsNinjas() {
         return "Mostrar Ninja";
     }

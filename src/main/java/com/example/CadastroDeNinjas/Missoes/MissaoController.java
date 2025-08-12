@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("missoes")
 public class MissaoController {
 
-    @GetMapping("/lista")
+    @GetMapping("/listar")
     public String listarMissao(){
         return "Missao listada com sucesso";
     }
