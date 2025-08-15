@@ -11,7 +11,7 @@ public class NinjaService {
 
     private NinjaRepository ninjaRepository;
 
-    public NinjaService(NinjaRepository ninjaRepository){
+    public NinjaService(NinjaRepository ninjaRepository) {
         this.ninjaRepository = ninjaRepository;
     }
 
@@ -35,6 +35,15 @@ public class NinjaService {
     // Deletar o ninja - Tem que ser um metodo VOID
     public void deletarNinjaPorId(Long id) {
         ninjaRepository.deleteById(id);
+    }
+
+    // Atualizar ninja
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado) {
+        if (ninjaRepository.existsById(id)) {
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null;
     }
 
 }
