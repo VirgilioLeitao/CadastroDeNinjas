@@ -4,7 +4,6 @@ package com.example.CadastroDeNinjas.Ninjas;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -40,7 +39,7 @@ public class NinjaController {
     // Mastrar ninja por id (READ)
     @GetMapping("/listar/{id}")
     public ResponseEntity<?> listarNinjaPorId(@PathVariable Long id ){
-            NinjaDTO ninja = ninjaService.ListarNinjasPorId(id);
+            NinjaDTO ninja = ninjaService.listarNinjasPorId(id);
 
             if (ninja !=  null) {
                 return ResponseEntity.ok(ninja);
@@ -67,7 +66,7 @@ public class NinjaController {
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity<String> deletarNinjaPorId(@PathVariable Long id){
 
-        if (ninjaService.ListarNinjasPorId(id) !=  null) {
+        if (ninjaService.listarNinjasPorId(id) !=  null) {
             ninjaService.deletarNinjaPorId(id);
             return ResponseEntity.ok("Ninja com o ID " + id + " apagado com sucesso");
         }else {
